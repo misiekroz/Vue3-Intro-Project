@@ -9,11 +9,29 @@
     <h1>Hello Vue!</h1>
     <div id="app">
         <h2>The template is now here</h2>
-        <p>{{title}} - {{author}}, {{age}}</p>
-        <!-- v-on: can be replaced with @ -->
-        <button v-on:click="age++">Increase age</button>
-        <div @click="changeTitle('Lord of the rings')">
-            Click here to change the title!
+        <div v-if="showBooks">
+            <p>{{title}} - {{author}}, {{age}}</p>
+        </div>
+
+        <!-- This seems same as v-if, but v-if removes HTML completly, whereas
+         v-show just hides it in CSS. First is more resource expensive to do,
+         but does not keep the elements present in the html -->
+        <div v-show="showBooks">
+            Books are visible
+        </div>
+
+        <button @click="toggleBooks">
+            <!-- Comparisons can be used too, eg showBooks == true -->
+            <span v-if="showBooks">Hide book</span>
+            <span v-else">Show book</span>
+        </button>
+
+        <div>
+            <!-- v-on: can be replaced with @ -->
+            <button v-on:click="age++">Increase age</button>
+            <div @click="changeTitle('Lord of the rings')">
+                Click here to change the title!
+            </div>
         </div>
     </div>
     <script src="app.js" ></script>

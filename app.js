@@ -3,6 +3,7 @@ const app = Vue.createApp({
     // template: '<h2>I am the template</h2>'
     data() {
         return {
+            showBooks: true,
             title: 'Hobbit',
             author: 'Tolkien',
             age: 50
@@ -12,6 +13,9 @@ const app = Vue.createApp({
         changeTitle(title){
             console.log('changing title')
             this.title = title
+        },
+        toggleBooks(){
+            this.showBooks = !this.showBooks
         }
     }
 })
