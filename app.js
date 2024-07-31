@@ -7,6 +7,12 @@ const app = Vue.createApp({
             author: 'Tolkien',
             age: 50
         }
+    },
+    methods:{
+        changeTitle(title){
+            console.log('changing title')
+            this.title = title
+        }
     }
 })
 
